@@ -24,7 +24,7 @@
     combo_alt {
       timeout-ms = <50>;
       key-positions = <13 15>;
-      bindings = <&kp ALT>;
+      bindings = <&kp LALT>;
     };
 
     combo_ws_change {
