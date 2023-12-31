@@ -46,39 +46,32 @@
   };
 };
 
-/{
-  macros {
-    // Zellij workspace switcher
-    // Used on HELP layer, switches back to default layer
-    se_sw: se_sw {
-      compatible = "zmk,behavior_macro";
+/ {
+    macros {
+        sesw: session_switch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp G &kp O>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp W>
+                , <&tog DEFAULT>
+                ;
+        };
 
-      #binding-cells = <0>;
-
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings
-        = <&kp LCTRL &kp G>
-        , <&kp LCTRL &kp O>
-        , <&kp W>
-        , <&tog DEFAULT>
-        ;
-      };
-  };
-
-  // Caps word that switches to default layer after firing
-  c_w: caps_word_default {
-      compatible = "zmk,behavior_macro";
-
-      #binding-cells = <0>;
-
-      bindings
-        = <&caps_word>
-        , <&tog DEFAULT>
-        ;
+        cw_tog: caps_word_layer_toggle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&caps_word>
+                , <&tog DEFAULT>
+                ;
+          };
     };
 };
 
+// KEYMAPS
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -147,9 +140,9 @@
 // --- HELP
                 help_layer {
                         bindings = <
-   &trans &trans &trans &trans  &trans &trans            &trans &trans &trans &trans &trans &trans
+   &trans &trans &sesw &trans  &trans &trans            &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &kp DEL &trans &trans            &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &c_w    &trans &trans            &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &cw_tog    &trans &trans            &trans &trans &trans &trans &trans &trans
                     &trans   &trans   &tog DEFAULT   &trans   &trans    &trans
                         >;
                 };
