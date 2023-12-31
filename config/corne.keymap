@@ -58,9 +58,9 @@
       wait-ms = <40>;
       tap-ms = <40>;
       bindings
-        = <&kp LC(g)>
-        , <&kp LC(o)>
-        , <&kp w>
+        = <&kp LC(G)>
+        , <&kp LC(O)>
+        , <&kp W>
         , <&tog DEFAULT>
         ;
       };
