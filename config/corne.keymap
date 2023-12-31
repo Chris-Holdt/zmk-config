@@ -16,7 +16,7 @@
 #define FKEYS       4
 #define WORKSPACES  5
 #define HELP        6
-#define MOUSE       7
+// #define MOUSE       7
 
 &mt {
   tapping-term-ms = <250>;
@@ -67,7 +67,7 @@
   };
 
   // Caps word that switches to default layer after firing
-  c_w: c_w {
+  c_w: caps_word_default {
       compatible = "zmk,behavior_macro";
 
       #binding-cells = <0>;
@@ -139,7 +139,7 @@
                         bindings = <
    &trans &kp LG(N1)      &kp LG(N2)      &kp LG(N3)  &kp LG(N4)  &kp LG(N5)          &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &trans &trans
    &trans &trans          &trans          &trans      &trans      &trans              &trans          &trans          &trans          &trans          &trans &trans
-   &trans &kp LS(LG(N1))  &kp LS(LG(N2))  &kp LG(N3)  &kp LG(N4)  &kp LS(LG(N5))      &kp LS(LG(N6))  &kp LS(LG(N7))  &kp LS(LG(N8))  &kp LS(LG(N9))  &trans &trans
+   &trans &trans          &trans          &trans      &trans      &trans              &trans          &trans          &trans          &trans          &trans &trans
                                         &trans   &trans   &trans          &trans   &trans    &trans
                         >;
                 };
@@ -155,14 +155,14 @@
                 };
 
 // --- MOUSE
-                mouse_layer {
-                        bindings = <
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &mkp LCLK &mkp RCLK &trans &trans
-                    &trans   &trans   &trans   &trans   &trans    &trans
-                        >;
-                };
+//                mouse_layer {
+//                        bindings = <
+//   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+//   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+//   &trans &trans &trans &trans &trans &trans   &trans &trans &mkp LCLK &mkp RCLK &trans &trans
+//                    &trans   &trans   &trans   &trans   &trans    &trans
+//                        >;
+//                };
 
 // --- TEMPLATE
 //                template_layer {
