@@ -15,10 +15,11 @@
 #define MISC        3
 #define FKEYS       4
 #define WORKSPACES  5
-#define MOUSE       6
+#define HELP        6
+#define MOUSE       7
 
 &mt {
-  tapping-term-ms = <150>;
+  tapping-term-ms = <250>;
 };
 
 / {
@@ -31,12 +32,51 @@
       bindings = <&kp LALT>;
     };
 
+    combo_sfls {
+      timeout-ms = <50>;
+      key-positions = <14 16>;
+      bindings = <&tog HELP>;
+    };
+
     combo_ws_change {
       timeout-ms = <50>;
       key-positions = <16 19>;
       bindings = <&sl WORKSPACES>;
     };
   };
+};
+
+/{
+  macros {
+    // Zellij workspace switcher
+    // Used on HELP layer, switches back to default layer
+    se_sw: se_sw {
+      compatible n "zmk,behavior_macro";
+
+      #binding-cells = <0>;
+
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings
+        = <&kp LC(g)>
+        , <&kp LC(o)>
+        , <&kp w>
+        , <&tog DEFAULT>
+        ;
+      };
+  };
+
+  // Caps word that switches to default layer after firing
+  c_w: c_w {
+      compatible n "zmk,behavior_macro";
+
+      #binding-cells = <0>;
+
+      bindings
+        = <&caps_word>
+        , <&tog DEFAULT>
+        ;
+    };
 };
 
 / {
@@ -97,12 +137,23 @@
 // --- WORKSPACE SWITCHING
                 workspace_layer {
                         bindings = <
-   &trans &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &trans &trans
-   &trans &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans &trans
-   &trans &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans &trans
+   &trans &kp LG(N1)      &kp LG(N2)      &kp LG(N3)  &kp LG(N4)  &kp LG(N5)          &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &trans &trans
+   &trans &trans          &trans          &trans      &trans      &trans              &trans          &trans          &trans          &trans          &trans &trans
+   &trans &kp LS(LG(N1))  &kp LS(LG(N2))  &kp LG(N3)  &kp LG(N4)  &kp LS(LG(N5))      &kp LS(LG(N6))  &kp LS(LG(N7))  &kp LS(LG(N8))  &kp LS(LG(N9))  &trans &trans
                                         &trans   &trans   &trans          &trans   &trans    &trans
                         >;
                 };
+
+// --- HELP
+                help_layer {
+                        bindings = <
+   &trans &trans &se_sw &trans  &trans &trans            &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &kp DEL &trans &trans            &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &c_w    &trans &trans            &trans &trans &trans &trans &trans &trans
+                    &trans   &trans   &tog DEFAULT   &trans   &trans    &trans
+                        >;
+                };
+        };
 
 // --- MOUSE
                 mouse_layer {
