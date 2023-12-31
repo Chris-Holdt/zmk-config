@@ -51,7 +51,7 @@
     // Zellij workspace switcher
     // Used on HELP layer, switches back to default layer
     se_sw: se_sw {
-      compatible n "zmk,behavior_macro";
+      compatible = "zmk,behavior_macro";
 
       #binding-cells = <0>;
 
@@ -68,7 +68,7 @@
 
   // Caps word that switches to default layer after firing
   c_w: c_w {
-      compatible n "zmk,behavior_macro";
+      compatible = "zmk,behavior_macro";
 
       #binding-cells = <0>;
 
