@@ -147,7 +147,7 @@
 // --- HELP
                 help_layer {
                         bindings = <
-   &trans &trans &se_sw &trans  &trans &trans            &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &trans  &trans &trans            &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &kp DEL &trans &trans            &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &c_w    &trans &trans            &trans &trans &trans &trans &trans &trans
                     &trans   &trans   &tog DEFAULT   &trans   &trans    &trans
