@@ -23,7 +23,7 @@
 
 &caps_word {
   continue-list = <SPACE UNDERSCORE MINUS RETURN>;
-}
+};
 
 / {
   macros {
