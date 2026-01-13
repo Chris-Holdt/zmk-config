@@ -70,7 +70,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <150>;
-      bindings = <&kp LGUI>, <&lt MOUSE>;
+      bindings = <&kp LGUI>, <&sl MOUSE>;
     };
   };
 
@@ -142,8 +142,8 @@
                 mouse_layer {
                         bindings = <
    &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   // &trans &trans &trans &trans &trans &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
+   // &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &trans &trans &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans   &trans &trans &mkp LCLK &mkp RCLK &trans &trans
                     &trans   &trans   &trans   &trans   &trans    &trans
                         >;
