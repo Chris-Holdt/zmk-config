@@ -16,6 +16,7 @@
 #define FKEYS       4
 #define WORKSPACES  5
 #define MOUSE       6
+#define MACRO       7
 
 &mt {
   tapping-term-ms = <175>;
@@ -50,7 +51,13 @@
     combo_ws_change {
       timeout-ms = <50>;
       key-positions = <16 19>;
-      bindings = <&to WORKSPACES>;
+      bindings = <&sl WORKSPACES>;
+    };
+
+    combo_macro_layer {
+      timeout-ms = <50>;
+      key-positions = <14 16>;
+      bindings = <&to MACRO>;
     };
   };
 
@@ -58,14 +65,14 @@
     td_cw: toggle_caps_word {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
+      tapping-term-ms = <175>;
       bindings = <&kp LSHFT>, <&caps_word>;
     };
 
     td_ml: toggle_mouse_layer {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <150>;
+      tapping-term-ms = <175>;
       bindings = <&kp LGUI>, <&sl MOUSE>;
     };
   };
