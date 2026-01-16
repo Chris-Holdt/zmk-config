@@ -29,7 +29,7 @@
 / {
   macros {
     MAC_SES_SW: zellij_switch_workspace {
-        compatible = "zmk,behavior-tap-dance";
+        compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings = <&macro_press &kp LCTRL>
                   , <&macro_tap &kp G &kp O>
@@ -58,6 +58,12 @@
       timeout-ms = <50>;
       key-positions = <14 16>;
       bindings = <&to MACRO>;
+    };
+
+    combo_default_layer {
+      timeout-ms = <50>;
+      key-positions = <18 20>;
+      bindings = <&to DEFAULT>;
     };
   };
 
