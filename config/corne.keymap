@@ -18,7 +18,7 @@
 #define MOUSE       6
 
 &mt {
-  tapping-term-ms = <150>;
+  tapping-term-ms = <175>;
 };
 
 &caps_word {
@@ -33,13 +33,11 @@
         bindings = <&macro_press &kp LCTRL>
                   , <&macro_tap &kp G &kp O>
                   , <&macro_release &kp LCTRL>
-                  , <&macro_tap &kp W &sl DEFAULT>
+                  , <&macro_tap &kp W &to DEFAULT>
                   ;
     };
   };
-};
 
-/ {
   combos {
     compatible = "zmk,combos";
 
@@ -52,12 +50,10 @@
     combo_ws_change {
       timeout-ms = <50>;
       key-positions = <16 19>;
-      bindings = <&sl WORKSPACES>;
+      bindings = <&to WORKSPACES>;
     };
   };
-};
 
-/ {
   behaviors {
     td_cw: toggle_caps_word {
       compatible = "zmk,behavior-tap-dance";
@@ -131,7 +127,7 @@
 // --- WORKSPACE SWITCHING
                 workspace_layer {
                         bindings = <
-   &trans &kp LG(N1)  &MAC_SES_SW  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &trans &trans
+   &trans &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &trans &trans
    &trans &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans &trans
    &trans &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans &trans
                                         &trans   &trans   &trans          &trans   &trans    &trans
@@ -141,10 +137,19 @@
 // --- MOUSE
                 mouse_layer {
                         bindings = <
+   &trans &trans &trans &trans &trans &trans   &trans                  &trans         &trans      &trans           &trans &trans
+   &trans &trans &trans &trans &msc SCRL_UP    &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
+   &trans &trans &trans &trans &msc SCRL_DOWN  &trans   &trans         &mkp LCLK      &mkp RCLK    &trans          &trans &trans
+                    &trans   &trans   &trans   &trans   &trans         &trans
+                        >;
+                };
+
+ // --- MACRO
+                macro_layer {
+                        bindings = <
+   &trans &trans &MAC_SES_SW &trans &trans &trans   &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   // &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &mkp LCLK &mkp RCLK &trans &trans
+   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
                     &trans   &trans   &trans   &trans   &trans    &trans
                         >;
                 };
