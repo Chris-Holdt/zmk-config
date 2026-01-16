@@ -35,6 +35,9 @@
                   , <&macro_tap &kp G &kp O>
                   , <&macro_release &kp LCTRL>
                   , <&macro_tap &kp W &to DEFAULT>
+                  , <&macro_press &kp LCTRL>
+                  , <&macro_tap &kp G>
+                  , <&macro_release &kp LCTRL>
                   ;
     };
   };
